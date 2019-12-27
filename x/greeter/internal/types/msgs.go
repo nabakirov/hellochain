@@ -39,5 +39,5 @@ func (msg MsgGreet) GetSigners() []sdk.AccAddress {
 }
 
 func (msg MsgGreet) GetSignBytes() []byte {
-	return sdk.MustSortJSON(ModuleCdc.MustMarcharJSON(msg))
+	return sdk.MustSortJSON(ModuleCdc.MustMarshalJSON(msg))
 }
