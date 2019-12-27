@@ -1,7 +1,7 @@
 package main
 
 import (
-	app "github.com/cosmos/sdk-tutorials/hellochain"
+	app "github.com/nabakirov/hellochain"
 	"github.com/cosmos/sdk-tutorials/hellochain/starter"
 	"github.com/tendermint/tendermint/libs/cli"
 )

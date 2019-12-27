@@ -5,26 +5,31 @@ import (
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/cosmos/cosmos-sdk/module"
+	"github.com/cosmos/cosmos-sdk/types/module"
 	"github.com/cosmos/sdk-tutorials/hellochain/starter"
 	"github.com/cosmos/sdk-tutorials/hellochain/x/greeter/client/cli"
-	gtypes "github.com/cosmos/sdk-tutorials/hellochain/x/greeter/internal/types"
+	gtypes "github.com/nabakirov/hellochain/x/greeter/internal/types"
 )
 
+// AppModuleBasic is the minimal struct for a module
 type AppModuleBasic struct {
 	starter.BlankModuleBasic
 }
 
+// AppModule contains the full module
 type AppModule struct {
 	starter.BlankModule
-	keeper Keeper
+	keeper     Keeper
 	ModuleName string
 }
 
-var(
-	_ module.AppModule = AppModule{}
+// type check to ensure the interface is properly implemented
+var (
+	_ module.AppModule      = AppModule{}
 	_ module.AppModuleBasic = AppModuleBasic{}
 )
+
+// RegisterCodec registers module Messages for encoding/decoding.
 func (AppModuleBasic) RegisterCodec(cdc *codec.Codec) {
 	cdc.RegisterConcrete(gtypes.MsgGreet{}, "greeter/SayHello", nil)
 }

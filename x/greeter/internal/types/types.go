@@ -10,7 +10,7 @@ import (
 
 const (
 	ModuleName = "greeter"
-	StrokeKey  = ModuleName
+	StoreKey  = ModuleName
 )
 
 var (
